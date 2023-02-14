@@ -6,7 +6,7 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 04:34:36 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/14 19:08:29 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/14 21:07:45 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 ClapTrap::ClapTrap() :
 	name("Noname"),
-	hitPoint(10),
-	energyPoint(10),
-	attDamage(0)
+	hitPoint(100),
+	energyPoint(50),
+	attDamage(20)
 {
-	std::cout << "Default constructor called\n";
+	std::cout << "ClapTrap Default constructor called\n";
 }
 ClapTrap::ClapTrap(const ClapTrap& rhs) :
 	name(rhs.name),
@@ -26,21 +26,21 @@ ClapTrap::ClapTrap(const ClapTrap& rhs) :
 	energyPoint(rhs.energyPoint),
 	attDamage(rhs.attDamage)
 {
-	std::cout << "Copy constructor called\n";
+	std::cout << "ClapTrap Copy constructor called\n";
 }
 ClapTrap::ClapTrap(const std::string& name) :
 	name(name),
-	hitPoint(10),
-	energyPoint(10),
-	attDamage(0)
+	hitPoint(100),
+	energyPoint(50),
+	attDamage(20)
 {
-	std::cout << "Name constructor called\n";
+	std::cout << "ClapTrap Name constructor called\n";
 }
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called\n";
+	std::cout << "ClapTrap Destructor called\n";
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap& rhs) {
-	std::cout << "Copy operator called\n";
+	std::cout << "ClapTrap Copy operator called\n";
 	if (this == &rhs) {
 		return *this;
 	}
