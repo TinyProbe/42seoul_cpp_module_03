@@ -6,7 +6,7 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 22:19:55 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/15 00:40:09 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/16 20:44:35 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ public:
 	DiamondTrap();
 	DiamondTrap(const DiamondTrap& rhs);
 	DiamondTrap(const std::string& name);
-	~DiamondTrap();
-	DiamondTrap& operator=(const DiamondTrap& rhs);
+	virtual ~DiamondTrap();
+	virtual DiamondTrap& operator=(const DiamondTrap& rhs);
 
 	using ScavTrap::attack;
-	void whoAmI() const;
+	virtual void whoAmI() const;
 
 };
 

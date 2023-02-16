@@ -6,7 +6,7 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 21:39:56 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/14 23:17:48 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/16 20:44:46 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ public:
 	FragTrap(const FragTrap& rhs);
 	FragTrap(const std::string& name);
 	virtual ~FragTrap();
-	FragTrap& operator=(const FragTrap& rhs);
+	virtual FragTrap& operator=(const FragTrap& rhs);
 
-	void highFivesGuys(void) const;
+	virtual void highFivesGuys(void) const;
 
 };
 
