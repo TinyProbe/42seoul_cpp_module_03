@@ -6,14 +6,14 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 04:34:36 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/14 19:08:29 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/23 08:24:18 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() :
-	name("Noname"),
+	name("(None)"),
 	hitPoint(10),
 	energyPoint(10),
 	attDamage(0)
