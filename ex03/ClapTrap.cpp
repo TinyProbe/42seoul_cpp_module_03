@@ -6,14 +6,14 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 04:34:36 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/24 04:56:42 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/24 07:32:23 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() :
-	name("(None)"),
+	name("(None)_clap_name"),
 	hitPoint(10),
 	energyPoint(10),
 	attDamage(0)
@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(const ClapTrap& rhs) {
 	*this = rhs;
 }
 ClapTrap::ClapTrap(const std::string& name) :
-	name(name),
+	name(name + "_clap_name"),
 	hitPoint(10),
 	energyPoint(10),
 	attDamage(0)
