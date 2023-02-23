@@ -6,26 +6,27 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:24:37 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/15 01:09:34 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/23 18:58:27 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() :
-	ClapTrap()
-{
+ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << "ScavTrap Default constructor called\n";
+	this->hitPoint = 100;
+	this->energyPoint = 50;
+	this->attDamage = 20;
 }
-ScavTrap::ScavTrap(const ScavTrap& rhs) :
-	ClapTrap(*dynamic_cast<const ClapTrap *>(&rhs))
-{
+ScavTrap::ScavTrap(const ScavTrap& rhs) {
 	std::cout << "ScavTrap Copy constructor called\n";
+	*this = rhs;
 }
-ScavTrap::ScavTrap(const std::string& name) :
-	ClapTrap(name)
-{
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
 	std::cout << "ScavTrap Name constructor called\n";
+	this->hitPoint = 100;
+	this->energyPoint = 50;
+	this->attDamage = 20;
 }
 ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap Destructor called\n";

@@ -6,41 +6,37 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 04:34:36 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/14 22:00:31 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/23 19:11:19 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() :
-	name("Noname"),
-	hitPoint(100),
-	energyPoint(100),
-	attDamage(30)
+	name("(None)_clap_name"),
+	hitPoint(10),
+	energyPoint(10),
+	attDamage(0)
 {
-	std::cout << "ClapTrap Default constructor called\n";
+	std::cout << "Default constructor called\n";
 }
-ClapTrap::ClapTrap(const ClapTrap& rhs) :
-	name(rhs.name),
-	hitPoint(rhs.hitPoint),
-	energyPoint(rhs.energyPoint),
-	attDamage(rhs.attDamage)
-{
-	std::cout << "ClapTrap Copy constructor called\n";
+ClapTrap::ClapTrap(const ClapTrap& rhs) {
+	std::cout << "Copy constructor called\n";
+	*this = rhs;
 }
 ClapTrap::ClapTrap(const std::string& name) :
-	name(name),
-	hitPoint(100),
-	energyPoint(100),
-	attDamage(30)
+	name(name + "_clap_name"),
+	hitPoint(10),
+	energyPoint(10),
+	attDamage(0)
 {
-	std::cout << "ClapTrap Name constructor called\n";
+	std::cout << "Name constructor called\n";
 }
 ClapTrap::~ClapTrap() {
-	std::cout << "ClapTrap Destructor called\n";
+	std::cout << "Destructor called\n";
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap& rhs) {
-	std::cout << "ClapTrap Copy operator called\n";
+	std::cout << "Copy operator called\n";
 	if (this == &rhs) {
 		return *this;
 	}
@@ -61,12 +57,16 @@ void ClapTrap::attack(const std::string& target) {
 	}
 }
 void ClapTrap::takeDamage(unsigned int amount) {
-	if (this->hitPoint > 0) {
-		std::cout << "ClapTrap " << this->name
-			<< " take " << amount << " points of damage!\n";
+	if (this->hitPoint == 0) {
+		std::cout << "ClapTrap " << this->name << " already dead\n";
+		return;
+	}
+	std::cout << "ClapTrap " << this->name
+		<< " take " << amount << " points of damage!\n";
+	if (this->hitPoint >= amount) {
 		this->hitPoint -= amount;
 	} else {
-		std::cout << "ClapTrap " << this->name << " already dead\n";
+		this->hitPoint = 0;
 	}
 }
 void ClapTrap::beRepaired(unsigned int amount) {

@@ -6,7 +6,7 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 04:34:36 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/23 08:24:18 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/23 19:05:54 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,9 @@ ClapTrap::ClapTrap() :
 {
 	std::cout << "Default constructor called\n";
 }
-ClapTrap::ClapTrap(const ClapTrap& rhs) :
-	name(rhs.name),
-	hitPoint(rhs.hitPoint),
-	energyPoint(rhs.energyPoint),
-	attDamage(rhs.attDamage)
-{
+ClapTrap::ClapTrap(const ClapTrap& rhs) {
 	std::cout << "Copy constructor called\n";
+	*this = rhs;
 }
 ClapTrap::ClapTrap(const std::string& name) :
 	name(name),
@@ -61,12 +57,16 @@ void ClapTrap::attack(const std::string& target) {
 	}
 }
 void ClapTrap::takeDamage(unsigned int amount) {
-	if (this->hitPoint > 0) {
-		std::cout << "ClapTrap " << this->name
-			<< " take " << amount << " points of damage!\n";
+	if (this->hitPoint == 0) {
+		std::cout << "ClapTrap " << this->name << " already dead\n";
+		return;
+	}
+	std::cout << "ClapTrap " << this->name
+		<< " take " << amount << " points of damage!\n";
+	if (this->hitPoint >= amount) {
 		this->hitPoint -= amount;
 	} else {
-		std::cout << "ClapTrap " << this->name << " already dead\n";
+		this->hitPoint = 0;
 	}
 }
 void ClapTrap::beRepaired(unsigned int amount) {

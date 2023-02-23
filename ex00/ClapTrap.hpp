@@ -6,7 +6,7 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 04:34:35 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/16 20:40:05 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/23 18:09:19 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 class ClapTrap {
 	std::string name;
-	int hitPoint;
-	int energyPoint;
-	int attDamage;
+	unsigned int hitPoint;
+	unsigned int energyPoint;
+	unsigned int attDamage;
 
 public:
 	ClapTrap();
