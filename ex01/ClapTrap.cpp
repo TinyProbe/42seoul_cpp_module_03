@@ -6,7 +6,7 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 04:34:36 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/23 19:06:38 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/24 04:56:42 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ ClapTrap::ClapTrap() :
 	energyPoint(10),
 	attDamage(0)
 {
-	std::cout << "Default constructor called\n";
+	std::cout << "ClapTrap Default constructor called\n";
 }
 ClapTrap::ClapTrap(const ClapTrap& rhs) {
-	std::cout << "Copy constructor called\n";
+	std::cout << "ClapTrap Copy constructor called\n";
 	*this = rhs;
 }
 ClapTrap::ClapTrap(const std::string& name) :
@@ -30,13 +30,13 @@ ClapTrap::ClapTrap(const std::string& name) :
 	energyPoint(10),
 	attDamage(0)
 {
-	std::cout << "Name constructor called\n";
+	std::cout << "ClapTrap Name constructor called\n";
 }
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called\n";
+	std::cout << "ClapTrap Destructor called\n";
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap& rhs) {
-	std::cout << "Copy operator called\n";
+	std::cout << "ClapTrap Copy operator called\n";
 	if (this == &rhs) {
 		return *this;
 	}
@@ -57,16 +57,17 @@ void ClapTrap::attack(const std::string& target) {
 	}
 }
 void ClapTrap::takeDamage(unsigned int amount) {
-	if (this->hitPoint == 0) {
+	if (this->hitPoint) {
+		std::cout << "ClapTrap " << this->name
+			<< " take " << amount << " points of damage!\n";
+		if (this->hitPoint >= amount) {
+			this->hitPoint -= amount;
+		} else {
+			this->hitPoint = 0;
+		}
+	} else {
 		std::cout << "ClapTrap " << this->name << " already dead\n";
 		return;
-	}
-	std::cout << "ClapTrap " << this->name
-		<< " take " << amount << " points of damage!\n";
-	if (this->hitPoint >= amount) {
-		this->hitPoint -= amount;
-	} else {
-		this->hitPoint = 0;
 	}
 }
 void ClapTrap::beRepaired(unsigned int amount) {

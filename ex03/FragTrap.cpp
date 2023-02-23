@@ -6,7 +6,7 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 21:39:57 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/23 19:02:58 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/24 04:59:19 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ FragTrap& FragTrap::operator=(const FragTrap& rhs) {
 	if (this == &rhs) {
 		return *this;
 	}
-	*dynamic_cast<ClapTrap *>(this)
-		= *dynamic_cast<const ClapTrap *>(&rhs);
+	dynamic_cast<ClapTrap&>(*this) = dynamic_cast<const ClapTrap&>(rhs);
 	return *this;
 }
 

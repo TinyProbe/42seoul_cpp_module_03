@@ -6,7 +6,7 @@
 /*   By: tkong <tkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 19:24:37 by tkong             #+#    #+#             */
-/*   Updated: 2023/02/23 18:58:27 by tkong            ###   ########.fr       */
+/*   Updated: 2023/02/24 04:47:36 by tkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& rhs) {
 	if (this == &rhs) {
 		return *this;
 	}
-	*dynamic_cast<ClapTrap *>(this)
-		= *dynamic_cast<const ClapTrap *>(&rhs);
+	dynamic_cast<ClapTrap&>(*this) = dynamic_cast<const ClapTrap&>(rhs);
 	return *this;
 }
 
